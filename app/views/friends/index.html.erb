@@ -1,0 +1,40 @@
+
+<div class="page-container">
+
+<% if user_signed_in?  %>
+
+  <div class="friends_header">
+        <h1>Friends </h1>
+        <%= link_to "Add New friend", new_friend_path, class:"btn btn-secondary" %>
+  </div>
+
+
+
+
+  <div id="friends">
+
+  
+    <% @friends.each do |friend| %>
+      <%if friend.user == current_user %>
+      <div class= "friends_cell">
+      <%= render friend %>
+      <p>
+        <%= link_to "Show friend details", friend, class:"btn btn-secondary" %>
+      </p>
+      </div>
+      <% end %>
+      <% end %>
+
+
+  </div>
+
+<%else %>
+  <h1>Hello Friends</h1>
+  <p> Please Sign Up or Log in to your account </p>
+<%end%>  
+</div>
+
+
+
+
+
